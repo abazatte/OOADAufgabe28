@@ -4,7 +4,10 @@ public class Person {
     private String name;
     private PolitischEnum politischEnum;
     private ProtegiertEnum protegiertEnum;
+
+    private boolean ruhestand;
     public Person() {}
+
     public Person(String name) {
         this.name = name;
     }
@@ -20,12 +23,16 @@ public class Person {
     }
 
     public void parteitadel() {
+        switch(politischEnum){
+            case loyal, kriechend -> politischEnum = PolitischEnum.rebellisch;
+        }
     }
 
     public void wirtschaftslob() {
     }
 
     public void erwischt() {
+        switch(politischEnum)
     }
 
 
@@ -35,5 +42,12 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public boolean isRuhestand() {
+        return ruhestand;
+    }
+
+    public void setRuhestand(boolean ruhestand) {
+        this.ruhestand = ruhestand;
     }
 }

@@ -14,7 +14,9 @@ public class Person {
     }
 
     public void parteilob() {
-
+        switch (politischEnum){
+            case loyal -> politischEnum = PolitischEnum.kriechend;
+        }
     }
 
     public void parteitadel() {

@@ -1,5 +1,5 @@
 package entity;
 
 public enum PolitischEnum {
-    rebellisch, loyal, Kriechen
+    rebellisch, loyal, kriechend
 }

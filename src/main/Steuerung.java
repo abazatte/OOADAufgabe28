@@ -2,15 +2,14 @@ package main;
 
 import java.util.Scanner;
 
-import entity.Politisch;
-import entity.Zustand;
+import entity.Person;
 
 public class Steuerung {
-  private Politisch polli;  
+  private Person polli;
 
   public Steuerung(){
     int eingabe = -1;
-    polli = new Politisch();
+    polli = new Person();
     while(this.polli.aktiv()){
       System.out.println("Welches naechste Ereignis?\n"
           +" (0) Lob von der eigenen Partei\n"

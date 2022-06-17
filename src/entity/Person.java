@@ -19,6 +19,7 @@ public class Person {
     public void parteilob() {
         switch (politischEnum){
             case loyal -> politischEnum = PolitischEnum.kriechend;
+            case rebellisch -> politischEnum = PolitischEnum.loyal;
         }
     }
 
@@ -33,6 +34,13 @@ public class Person {
 
     public void erwischt() {
         switch(politischEnum)
+    }
+
+    public void wirtschaftskritik(){
+        //politisch enum wird rausgelassen, da es nichts macht
+        switch (protegiertEnum){
+            case hoerig, ergeben, rehabilitiert -> protegiertEnum = ProtegiertEnum.neutral;
+        }
     }
 
 

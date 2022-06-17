@@ -12,10 +12,12 @@ public class Person {
 
     public Person(String name) {
         this.name = name;
+        this.protegiertEnum = ProtegiertEnum.ergeben;
+        this.politischEnum = PolitischEnum.loyal;
     }
 
     public boolean aktiv() {
-        return false;
+        return !ruhestand;
     }
 
     public void parteilob() {
@@ -32,6 +34,20 @@ public class Person {
     }
 
     public void wirtschaftslob() {
+        switch (protegiertEnum){
+            case hoerig:
+                this.protegiertEnum = ProtegiertEnum.Aufsichtsrat;
+                break;
+            case ergeben:
+                this.protegiertEnum = ProtegiertEnum.hoerig;
+                break;
+            case neutral:
+                this.protegiertEnum = ProtegiertEnum.rehabilitiert;
+                break;
+            case rehabilitiert:
+                this.protegiertEnum = ProtegiertEnum.ergeben;
+                break;
+        }
     }
 
     public void erwischt() {

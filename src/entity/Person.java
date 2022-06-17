@@ -6,7 +6,9 @@ public class Person {
     private ProtegiertEnum protegiertEnum;
 
     private boolean ruhestand;
-    public Person() {}
+    public Person() {
+        ruhestand = false;
+    }
 
     public Person(String name) {
         this.name = name;
@@ -33,7 +35,7 @@ public class Person {
     }
 
     public void erwischt() {
-        switch(politischEnum)
+        setRuhestand(true);
     }
 
     public void wirtschaftskritik(){

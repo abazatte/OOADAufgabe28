@@ -15,25 +15,20 @@ public class Steuerung {
           +" (0) Lob von der eigenen Partei\n"
           +" (1) Tadel von der eigenen Partei\n"
           +" (2) Lob von der Wirtschaft\n"
-          +" (3) Erwischt");
+          +" (3) Kritik von der Wirtschaft\n"
+          +" (4) Erwischt\n");
       eingabe=new Scanner(System.in).nextInt();
-      switch(eingabe){
-      case 0: 
-        polli.parteilob();
-        break;
-      case 1:
-        polli.parteitadel();
-        break;
-      case 2:
-        polli.wirtschaftslob();
-        break;
-      case 3:
-        polli.erwischt();
-        break;
+      switch (eingabe) {
+        case 0 -> polli.parteilob();
+        case 1 -> polli.parteitadel();
+        case 2 -> polli.wirtschaftslob();
+        case 3 -> polli.wirtschaftskritik();
+        case 4 -> polli.erwischt();
       }
-      System.out.println("Fiktive Person befindet sich in"
+
+      System.out.println(polli.getName() + " befindet sich in"
           +" (Teil)-Zustaenden:");
-      // TODO
+      polli.ausgabe();
       System.out.println("\n----------------");
     }
   }

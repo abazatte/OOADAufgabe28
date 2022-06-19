@@ -4,14 +4,18 @@ public class Person {
     private String name;
     private PolitischEnum politischEnum;
     private ProtegiertEnum protegiertEnum;
-
     private boolean ruhestand;
+
     public Person() {
-        ruhestand = false;
+        this.name = "ROIDS - rudo";
+        this.ruhestand = false;
+        this.protegiertEnum = ProtegiertEnum.ergeben;
+        this.politischEnum = PolitischEnum.loyal;
     }
 
     public Person(String name) {
         this.name = name;
+        this.ruhestand = false;
         this.protegiertEnum = ProtegiertEnum.ergeben;
         this.politischEnum = PolitischEnum.loyal;
     }
@@ -25,12 +29,14 @@ public class Person {
             case loyal -> politischEnum = PolitischEnum.kriechend;
             case rebellisch -> politischEnum = PolitischEnum.loyal;
         }
+
     }
 
     public void parteitadel() {
         switch(politischEnum){
             case loyal, kriechend -> politischEnum = PolitischEnum.rebellisch;
         }
+
     }
 
     public void wirtschaftslob() {
@@ -48,10 +54,12 @@ public class Person {
                 this.protegiertEnum = ProtegiertEnum.ergeben;
                 break;
         }
+
     }
 
     public void erwischt() {
-        setRuhestand(true);
+        this.ruhestand = true;
+
     }
 
     public void wirtschaftskritik(){
@@ -59,6 +67,7 @@ public class Person {
         switch (protegiertEnum){
             case hoerig, ergeben, rehabilitiert -> protegiertEnum = ProtegiertEnum.neutral;
         }
+
     }
 
 
@@ -66,14 +75,31 @@ public class Person {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    public boolean isRuhestand() {
-        return ruhestand;
+    public void ausgabe(){
+        System.out.println(toString());
     }
 
-    public void setRuhestand(boolean ruhestand) {
-        this.ruhestand = ruhestand;
+    @Override
+    public String toString(){
+        if (ruhestand){
+            return "RUHESTAND";
+        }
+        StringBuilder bob = new StringBuilder();
+        bob.append("POLISTISCH_AKTIV ");
+        switch (politischEnum){
+            case kriechend -> bob.append("KRIECHEND ");
+            case loyal -> bob.append("LOYAL ");
+            case rebellisch -> bob.append("REBELLISCH ");
+        }
+        bob.append("PROTEGIERT ");
+        switch (protegiertEnum){
+            case rehabilitiert -> bob.append("REHABILITIERT ");
+            case ergeben -> bob.append("ERGEBEN ");
+            case hoerig -> bob.append("HOERIG ");
+            case Aufsichtsrat -> bob.append("AUFSICHTSRAT ");
+            case neutral -> bob.append("NEUTRAL ");
+        }
+
+        return bob.toString();
     }
 }

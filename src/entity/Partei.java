@@ -18,4 +18,8 @@ public class Partei {
     public Person getPersonWithName(String name){
         return personen.get(name);
     }
+
+    public Collection<Person> personList(){
+        return personen.values();
+    }
 }
